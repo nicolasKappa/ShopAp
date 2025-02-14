@@ -1,21 +1,19 @@
-
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
-  title:
-   {
+  title: {
     type: String,
     required: true
-   },
+  },
   price: {
     type: Number,
     required: true
   },
   description: {
     type: String,
-    required: true 
+    required: true
   },
   imageUrl: {
     type: String,
@@ -28,10 +26,9 @@ const productSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Product',productSchema);
+module.exports = mongoose.model('Product', productSchema);
 
 // const mongodb = require('mongodb');
-
 // const getDb = require('../util/database').getDb;
 
 // class Product {
