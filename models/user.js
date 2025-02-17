@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-<<<<<<< HEAD
   email: {
     type: String,
     required: true
@@ -14,16 +13,6 @@ const userSchema = new Schema({
   },
   resetToken: String,
   resetTokenExpiration: Date,
-=======
-  name: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true
-  },
->>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
   cart: {
     items: [
       {

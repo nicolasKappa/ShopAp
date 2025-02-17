@@ -5,7 +5,6 @@ const PDFDocument = require('pdfkit');
 
 const Product = require('../models/product');
 const Order = require('../models/order');
-<<<<<<< HEAD
 
 const ITEMS_PER_PAGE = 2;
 
@@ -38,22 +37,6 @@ exports.getProducts = (req, res, next) => {
       const error = new Error(err);
       error.httpStatusCode = 500;
       return next(error);
-=======
-
-exports.getProducts = (req, res, next) => {
-  Product.find()
-    .then(products => {
-      console.log(products);
-      res.render('shop/product-list', {
-        prods: products,
-        pageTitle: 'All Products',
-        path: '/products',
-        isAuthenticated: req.session.isLoggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
->>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
     });
 };
 
@@ -64,7 +47,6 @@ exports.getProduct = (req, res, next) => {
       res.render('shop/product-detail', {
         product: product,
         pageTitle: product.title,
-<<<<<<< HEAD
         path: '/products'
       });
     })
@@ -87,23 +69,11 @@ exports.getIndex = (req, res, next) => {
         .skip((page - 1) * ITEMS_PER_PAGE)
         .limit(ITEMS_PER_PAGE);
     })
-=======
-        path: '/products',
-        isAuthenticated: req.session.isLoggedIn
-      });
-    })
-    .catch(err => console.log(err));
-};
-
-exports.getIndex = (req, res, next) => {
-  Product.find()
->>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
     .then(products => {
       res.render('shop/index', {
         prods: products,
         pageTitle: 'Shop',
         path: '/',
-<<<<<<< HEAD
         currentPage: page,
         hasNextPage: ITEMS_PER_PAGE * page < totalItems,
         hasPreviousPage: page > 1,
@@ -116,29 +86,17 @@ exports.getIndex = (req, res, next) => {
       const error = new Error(err);
       error.httpStatusCode = 500;
       return next(error);
-=======
-        isAuthenticated: req.session.isLoggedIn
-      });
-    })
-    .catch(err => {
-      console.log(err);
->>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
     });
 };
 
 exports.getCart = (req, res, next) => {
   req.user
     .populate('cart.items.productId')
-<<<<<<< HEAD
-    .execPopulate()
-=======
->>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
     .then(user => {
       const products = user.cart.items;
       res.render('shop/cart', {
         path: '/cart',
         pageTitle: 'Your Cart',
-<<<<<<< HEAD
         products: products
       });
     })
@@ -147,13 +105,6 @@ exports.getCart = (req, res, next) => {
       error.httpStatusCode = 500;
       return next(error);
     });
-=======
-        products: products,
-        isAuthenticated: req.session.isLoggedIn
-      });
-    })
-    .catch(err => console.log(err));
->>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
 };
 
 exports.postCart = (req, res, next) => {
@@ -165,14 +116,11 @@ exports.postCart = (req, res, next) => {
     .then(result => {
       console.log(result);
       res.redirect('/cart');
-<<<<<<< HEAD
     })
     .catch(err => {
       const error = new Error(err);
       error.httpStatusCode = 500;
       return next(error);
-=======
->>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
     });
 };
 
@@ -183,13 +131,37 @@ exports.postCartDeleteProduct = (req, res, next) => {
     .then(result => {
       res.redirect('/cart');
     })
-<<<<<<< HEAD
     .catch(err => {
       const error = new Error(err);
       error.httpStatusCode = 500;
       return next(error);
     });
 };
+
+exports.getCheckout = (req,res,next) => {
+  req.user
+  .populate('cart.items.productId')
+  .then(user => {
+    const products = user.cart.items;
+    let total = 0;
+    products.forEach(p=> {
+      total += p.quantity * p.productId.price;
+
+    });
+    res.render('shop/checkout', {
+      path: '/checkout',
+      pageTitle: 'checkout',
+      products: products,
+      totalSum: total
+    });
+  })
+  .catch(err => {
+    const error = new Error(err);
+    error.httpStatusCode = 500;
+    return next(error);
+  });
+};
+
 
 exports.postOrder = (req, res, next) => {
   req.user
@@ -297,45 +269,4 @@ exports.getInvoice = (req, res, next) => {
       // file.pipe(res);
     })
     .catch(err => next(err));
-=======
-    .catch(err => console.log(err));
-};
-
-exports.postOrder = (req, res, next) => {
-  req.user
-    .populate('cart.items.productId')
-    .then(user => {
-      const products = user.cart.items.map(i => {
-        return { quantity: i.quantity, product: { ...i.productId._doc } };
-      });
-      const order = new Order({
-        user: {
-          name: req.user.name,
-          userId: req.user
-        },
-        products: products
-      });
-      return order.save();
-    })
-    .then(result => {
-      return req.user.clearCart();
-    })
-    .then(() => {
-      res.redirect('/orders');
-    })
-    .catch(err => console.log(err));
-};
-
-exports.getOrders = (req, res, next) => {
-  Order.find({ 'user.userId': req.user._id })
-    .then(orders => {
-      res.render('shop/orders', {
-        path: '/orders',
-        pageTitle: 'Your Orders',
-        orders: orders,
-        isAuthenticated: req.session.isLoggedIn
-      });
-    })
-    .catch(err => console.log(err));
->>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
 };
