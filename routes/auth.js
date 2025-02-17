@@ -1,13 +1,19 @@
 const express = require('express');
+<<<<<<< HEAD
 const { check, body } = require('express-validator');
 
 const authController = require('../controllers/auth');
 const User = require('../models/user');
+=======
+
+const authController = require('../controllers/auth');
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
 
 const router = express.Router();
 
 router.get('/login', authController.getLogin);
 
+<<<<<<< HEAD
 router.get('/signup', authController.getSignup);
 
 router.post(
@@ -75,3 +81,10 @@ router.get('/reset/:token', authController.getNewPassword);
 router.post('/new-password', authController.postNewPassword);
 
 module.exports = router;
+=======
+router.post('/login', authController.postLogin);
+
+router.post('/logout', authController.postLogout);
+
+module.exports = router;
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3

@@ -4,6 +4,7 @@ exports.get404 = (req, res, next) => {
     path: '/404',
     isAuthenticated: req.session.isLoggedIn
   });
+<<<<<<< HEAD
 };
 
 exports.get500 = (req, res, next) => {
@@ -12,4 +13,6 @@ exports.get500 = (req, res, next) => {
     path: '/500',
     isAuthenticated: req.session.isLoggedIn
   });
+=======
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
 };

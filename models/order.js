@@ -10,7 +10,11 @@ const orderSchema = new Schema({
     }
   ],
   user: {
+<<<<<<< HEAD
     email: {
+=======
+    name: {
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
       type: String,
       required: true
     },

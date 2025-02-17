@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
+<<<<<<< HEAD
 const csrf = require('csurf');
 const flash = require('connect-flash');
 const multer = require('multer');
@@ -14,12 +15,20 @@ const User = require('./models/user');
 
 const MONGODB_URI =
   'mongodb+srv://username:password@cluster0.jkcn0.mongodb.net/shop';
+=======
 
+const errorController = require('./controllers/error');
+const User = require('./models/user');
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
+
+const MONGODB_URI =
+'mongodb+srv://username:password@cluster0.jkcn0.mongodb.net/shop'
 const app = express();
 const store = new MongoDBStore({
   uri: MONGODB_URI,
   collection: 'sessions'
 });
+<<<<<<< HEAD
 const csrfProtection = csrf();
 
 const storage = multer.diskStorage({
@@ -42,6 +51,8 @@ const fileFilter = (req, file, cb) => {
     cb(null, false);
   }
 };
+=======
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -55,7 +66,10 @@ app.use(
   multer({ storage: storage, fileFilter: fileFilter }).single('image')
 );
 app.use(express.static(path.join(__dirname, 'public')));
+<<<<<<< HEAD
 app.use('/images', express.static(path.join(__dirname, 'images')));
+=======
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
 app.use(
   session({
     secret: 'my secret',
@@ -64,6 +78,7 @@ app.use(
     store: store
   })
 );
+<<<<<<< HEAD
 app.use(csrfProtection);
 app.use(flash());
 
@@ -75,11 +90,16 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   // throw new Error('Sync Dummy');
+=======
+
+app.use((req,res,next) => {
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
   if (!req.session.user) {
     return next();
   }
   User.findById(req.session.user._id)
     .then(user => {
+<<<<<<< HEAD
       if (!user) {
         return next();
       }
@@ -90,10 +110,18 @@ app.use((req, res, next) => {
       next(new Error(err));
     });
 });
+=======
+      req.user = user;
+      next();
+    })
+    .catch(err => console.log(err));
+  });
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 app.use(authRoutes);
+<<<<<<< HEAD
 
 app.get('/500', errorController.get500);
 
@@ -112,6 +140,26 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(MONGODB_URI)
   .then(result => {
+=======
+
+app.use(errorController.get404);
+
+mongoose
+  .connect(MONGODB_URI)
+  .then(result => {
+    User.findOne().then(user => {
+      if (!user) {
+        const user = new User({
+          name: 'Nika',
+          email: 'Nika@test.com',
+          cart: {
+            items: []
+          }
+        });
+        user.save();
+      }
+    });
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
     app.listen(3000);
   })
   .catch(err => {

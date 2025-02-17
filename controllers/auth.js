@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const crypto = require('crypto');
 require('dotenv').config();
 const bcrypt = require('bcryptjs');
@@ -52,10 +53,20 @@ exports.getSignup = (req, res, next) => {
       confirmPassword: ''
     },
     validationErrors: []
+=======
+const User = require('../models/user');
+
+exports.getLogin = (req, res, next) => {
+  res.render('auth/login', {
+    path: '/login',
+    pageTitle: 'Login',
+    isAuthenticated: false
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
   });
 };
 
 exports.postLogin = (req, res, next) => {
+<<<<<<< HEAD
   const email = req.body.email;
   const password = req.body.password;
 
@@ -165,6 +176,18 @@ exports.postSignup = (req, res, next) => {
       error.httpStatusCode = 500;
       return next(error);
     });
+=======
+  User.findById('67a89dc1cbf949248962e294')
+    .then(user => {
+      req.session.isLoggedIn = true;
+      req.session.user = user;
+      req.session.save((err) => {
+        console.log(err);
+        res.redirect('/');
+      });
+    })
+    .catch(err => console.log(err));
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
 };
 
 exports.postLogout = (req, res, next) => {
@@ -173,6 +196,7 @@ exports.postLogout = (req, res, next) => {
     res.redirect('/');
   });
 };
+<<<<<<< HEAD
 
 exports.getReset = (req, res, next) => {
   let message = req.flash('error');
@@ -280,3 +304,5 @@ exports.postNewPassword = (req, res, next) => {
       return next(error);
     });
 };
+=======
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3

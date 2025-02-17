@@ -43,7 +43,11 @@ form {
 .main-header__nav {
   height: 100%;
   width: 100%;
+<<<<<<< HEAD
   display: none;
+=======
+  display: flex;
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
   align-items: center;
   justify-content: space-between;
 }
@@ -235,6 +239,7 @@ form {
   color: white;
 }
 
+<<<<<<< HEAD
 .user-message {
   margin: auto;
   width: 90%;
@@ -271,6 +276,8 @@ form {
 }
 
 
+=======
+>>>>>>> e69861d0f1ab6f61fe7fc6562a3f363f4e3b1fa3
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;
