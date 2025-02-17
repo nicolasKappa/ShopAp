@@ -1,7 +1,6 @@
 {
   "name": "shopapp",
   "version": "1.0.0",
-  "description": "Complete Node.js Guide",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,15 +13,24 @@
     "nodemon": "^3.1.9"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.0",
     "body-parser": "^1.18.3",
+    "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^5.0.0",
+    "csurf": "^1.2.2",
     "ejs": "^3.1.10",
     "express": "^4.16.3",
     "express-handlebars": "^8.0.1",
     "express-session": "^1.18.1",
+    "express-validator": "^7.2.1",
     "mongodb": "^6.13.0",
     "mongoose": "^8.10.0",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^3.12.0",
+    "nodemailer": "^6.10.0",
+    "nodemailer-sendgrid": "^1.0.3",
+    "nodemailer-sendgrid-transport": "^0.2.0",
+    "pdfkit": "^0.16.0",
     "pug": "^3.0.3",
     "sequelize": "^6.37.5"
   }
