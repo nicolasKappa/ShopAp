@@ -11,12 +11,22 @@
 - [License](#license)
 
 
+# Installation
+
+1. Download and Visual Studio Code at https://visualstudio.microsoft.com/downloads/
+2. Clone GitHub Repo from https://github.com/nicolasKappa/ShopApp
+3. Create Free Account at https://www.mongodb.com and Download MongoDB Compass at https://www.mongodb.com/products/tools/compass
+4. Connect App.js 
+5. Navigate to http://localhost/flavourfinds/website/login.php
+6. Register a new account on the Website or log in using an existing Testing user: John Doe with Email john.doe@example.com and Password = Password1
+
+
+
 ## 🚀 Features
 
 - 🔐 **User Authentication** – Secure login and registration system  
 - 🛍️ **Product Management** – Browse, search, and filter products  
 - 🛒 **Shopping Cart** – Add, remove, and update cart items  
-- 💳 **Checkout & Payment** – Secure payment processing (if implemented)  
 - 📦 **Order Tracking** – View order history and status updates  
 - 🎨 **Responsive UI** – Fully optimized for different screen sizes  
 
