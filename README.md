@@ -33,10 +33,8 @@ const transporter = nodemailer.createTransport(
   })
 );
 ```
-
-
-5. Navigate to http://localhost/flavourfinds/website/login.php
-6. Register a new account on the Website or log in using an existing Testing user: John Doe with Email john.doe@example.com and Password = Password1
+6. Navigate to http://localhost
+7. Register a new account on the Website
 
 
 
@@ -52,7 +50,7 @@ const transporter = nodemailer.createTransport(
 
 - **Backend**: Node.js, Express,  
 - **Database**: MongoDB
-- **Frontend**: EJS 
+- **Frontend**: EJS, CSS
 - **Authentication**: session-based authentication with cookies
 
 ## 🏗️ Setup Instructions
