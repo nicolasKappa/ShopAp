@@ -5,6 +5,7 @@
 
 # Table of Contents
 - [Features](#Features)
+- [Installation](#Installation)
 - [Technologies Used](#Technologies_Used)
 - [Setup Instructions](#Setup_Instructions)
 - [Contributing](#Contributing)
