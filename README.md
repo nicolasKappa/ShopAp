@@ -28,8 +28,19 @@
 
    
 # Backend
-cd backend
-npm install  # or pip install -r requirements.txt (if using Python)
+```bash
+npm install module
+```
+
+```bash
+npm install --save bcryptjs```
+```
+
+# Start backend
+```bash
+npm start
+```
+
 
 
 
