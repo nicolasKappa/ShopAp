@@ -16,7 +16,24 @@
 1. Download and Visual Studio Code at https://visualstudio.microsoft.com/downloads/
 2. Clone GitHub Repo from https://github.com/nicolasKappa/ShopApp
 3. Create Free Account at https://www.mongodb.com and Download MongoDB Compass at https://www.mongodb.com/products/tools/compass
-4. Connect App.js 
+4. In App.js replace Your MongoDB Private Key to connect with database.
+```bash
+   const MONGODB_URI =
+  'mongodb+srv://<username>:<password>@cluster0.jkcn0.mongodb.net/shop';
+   ```
+5. In controller/auth.js Change "Enter Your Api Key Here" With your private nodemailer key from https://sendgrid.com
+```bash 
+const transporter = nodemailer.createTransport(
+  sendgridTransport({
+    auth: {
+      api_key:
+        'Enter Your Api Key Here'
+    }
+  })
+);
+```
+
+
 5. Navigate to http://localhost/flavourfinds/website/login.php
 6. Register a new account on the Website or log in using an existing Testing user: John Doe with Email john.doe@example.com and Password = Password1
 
@@ -50,6 +67,11 @@
 ```bash
 npm install module
 ```
+
+```bash
+npm install nodemailer
+```
+
 
 ```bash
 npm install --save bcryptjs```
