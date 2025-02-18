@@ -1,6 +1,6 @@
 # 🛒 ShopApp – E-Commerce Web Application
 
-**ShopApp** is a fully functional e-commerce web application designed to provide users with a smooth and intuitive online shopping experience. It includes user authentication, product management, and a secure checkout process.
+**ShopApp** is a fully functional e-commerce web application designed to provide users with a smooth and intuitive online shopping experience. It includes user authentication, and Product Management
 
 
 # Table of Contents
