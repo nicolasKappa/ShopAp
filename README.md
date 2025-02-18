@@ -44,9 +44,9 @@ npm start
 # Access the Application
  - **Open your browser and go to http://localhost:3000**
 
-## 🛠️ Contributing
+## 🛠️ Contributing 
 
- ** Contributions are welcome! To contribute:
+ **Contributions are welcome! To contribute:**
 
 - **Fork the repository**
 - **Create a feature branch (git checkout -b feature-name)**   
@@ -56,7 +56,7 @@ npm start
 
 ## 📄 License
 
- - **This project is licensed under the MIT License. See the LICENSE file for details.
+ - **This project is licensed under the MIT License. See the LICENSE file for details.**
 
 
 
