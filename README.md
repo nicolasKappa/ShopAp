@@ -2,6 +2,15 @@
 
 **ShopApp** is a fully functional e-commerce web application designed to provide users with a smooth and intuitive online shopping experience. It includes user authentication, product management, and a secure checkout process.
 
+
+# Table of Contents
+- [Features](#Features)
+- [Technologies Used](#Technologies_Used)
+- [Setup Instructions](#Setup_Instructions)
+- [Contributing](#Contributing)
+- [License](#license)
+
+
 ## 🚀 Features
 
 - 🔐 **User Authentication** – Secure login and registration system  
